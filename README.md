@@ -2,34 +2,37 @@
 
 ## Overview
 
-In this project, we aim to classify loan applicants into different risk segments using machine learning algorithms. The dataset used in this project contains various features such as **Age**, **Total Work Experience**, **Years in City**, **Cost to Request Ratio**, and other relevant information about applicants. These features are leveraged to build a model that classifies applicants based on their risk of defaulting on a loan.
-
-By accurately segmenting applicants into low, medium, and high-risk categories, financial institutions can make better-informed decisions about loan approvals, ultimately reducing the risk of financial loss.
-
-### Key Features:
-- **Data-driven Risk Segmentation**: Classify loan applicants into various risk categories (low, medium, high).
-- **Feature Engineering**: Utilize applicant's demographic and financial data to build a robust predictive model.
-- **Machine Learning Models**: Use classification models like Logistic Regression, Decision Trees, Random Forest, and Gradient Boosting to predict the loan risk.
-- **Model Evaluation**: Assess model performance using various evaluation metrics like accuracy, precision, recall, F1 score, and ROC-AUC.
+This project focuses on analyzing and classifying loan applicants based on various features such as **Age**, **Total Work Experience**, **Number of Years in City**, **Cost to Request Ratio**, **Cibil Score**, **Overdrafts (Past 12 Months)**, and **Total Bounces (Past 12 Months)**. The objective is to predict and segment the risk of loan applicants, specifically focusing on the **Total Bounces in the past 12 months** as the target variable. The project is divided into two phases: data exploration and model building.
 
 ---
 
 ## Dataset
 
-The dataset used in this project includes the following features:
-
-- **Age**: The applicant's age.
-- **Total Work Experience**: The total number of years the applicant has worked in their professional career.
-- **Years in City**: The number of years the applicant has been residing in their current city.
-- **Cost to Request Ratio**: The ratio of the requested loan amount to the applicant's annual income, providing insight into their debt burden.
-- **Income**: Monthly income of the applicant.
-- **Credit Score**: The applicant's creditworthiness score.
-- **Existing Debt**: The total amount of debt the applicant currently holds.
-- **Loan Amount**: The loan amount requested by the applicant.
-
-The dataset is available in the `data/` directory of this repository.
+The dataset contains the following columns:
+- **Age**: Age of the applicant.
+- **Total Work Experience**: Total work experience in years.
+- **Number of Years in City**: Duration of time the applicant has lived in the current city.
+- **Cost to Request Ratio**: Ratio of the requested loan amount to the applicant's income.
+- **Cibil Score**: Applicant's credit score.
+- **Overdrafts (Past 12 Months)**: Number of overdrafts in the past year.
+- **Total Bounces (Past 12 Months)**: Target variable indicating the total number of bounces (defaults or missed payments) in the past year.
 
 ---
 
-## Project Structure
+## Project Phases
 
+### Phase 1: Data Exploration and Preprocessing
+
+In this phase, the dataset is loaded and preprocessed:
+- The dataset is inspected for any **null values** and basic information is extracted.
+- Basic statistical details are generated using the `describe()` function.
+- Visualizations are created, including a **scatter plot** between **Age** and **Total Work Experience**, and **box plots** for **Age** and **Cibil Score**.
+- The target variable (**Total Bounces Past 12 Months**) and features are separated.
+
+### Phase 2: Model Building
+
+In this phase, the model is created and evaluated:
+- The data is split into **training** and **testing** sets.
+- A **K-Nearest Neighbors (KNN)** classifier is used to model the relationship between the features and the target variable.
+- The model's performance is evaluated by displaying the **training score**, **testing score**, and **accuracy score**.
+- The classifier is tested with **k-values** ranging from 1 to 14 to find the optimal value for the best model performance.
